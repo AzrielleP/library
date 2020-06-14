@@ -33,8 +33,22 @@ function Book(title, author, pages, status){
 }
 
 // Create a function to add the book to the library
-showHideForm();
+
+
+addBookToLibrary();
 function addBookToLibrary(){
+    showHideForm();
+    add.addEventListener("click", () =>{
+        let checkStatus = "";
+        status.checked ? checkStatus = "finished":checkStatus = "unfinished";
+
+        let newBook = new Book(newTitle.value, newAuthor.value, newPages.value, checkStatus);
+
+        library.push(newBook);
+        console.log(library[0]);
+        clearForm();
+
+    })
     
 }
 
@@ -46,4 +60,16 @@ function showHideForm(){
     cancel.addEventListener("click", () =>{
         form.style.visibility = "hidden";
     })
+}
+
+function clearForm(){
+    form.style.visibility = "hidden";
+    newTitle.value = "";
+    newAuthor.value = "";
+    newPages.value = "";
+    status.checked = false;
+}
+//Create a function that renders the data to the page
+function render(){
+
 }
