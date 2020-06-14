@@ -40,57 +40,37 @@ body{
 /* ====== Styling the entries ======= */
 #data{
     padding: 0.5em;
-    border-top: 0.1px solid rgba(255, 255, 255, 0.246);
-    border-bottom: 0.1px solid rgba(255, 255, 255, 0.246);
-    height: 14vh;
+    border-top: 0.1px solid rgba(255, 255, 255, 0.096);
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.096);
     padding: .8em;
-    display: grid;
-    grid-template-areas: "check title trash"
-    "check author page";
-    justify-items: stretch;
-}
-
-.check{
-    grid-area: check;
-    align-self: center;
-    font-size: 2em;
-}
-.title{
-    font-size: 1.3em;
-    grid-area: title;
-    align-self: flex-start;
-    justify-self: left;
-}
-
-.author{
-    grid-area: author;
-    font-size: 0.8em;
-    align-self: flex-end;
-    justify-self: left;
-}
-
-.pages{
-    grid-area: page;
-    font-size: 0.6em;
-    justify-self: right;
-    align-self: flex-end;
-}
-
-.fa-trash{
-    grid-area: trash;
-    justify-self: right;
-    align-self: flex-start;
 }
 
 /* ====== Styling the form ======= */
 .modal{
-    display: none;
+    visibility: hidden;
     height: 100vh;
-    padding: 3em 3em 2em 3em;
+    padding: 2em;
+    z-index:1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #1e1e1eb4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ul{
     list-style-type: none;
+}
+
+form{
+    background-color: #1e1e1e;
+    padding: 2em;
+    border: 0.5px solid white;
+    border-radius: 10px;
 }
 
 label:not(.agree){
@@ -148,4 +128,119 @@ input[type="number"]{
 .add{
     background: #6d8b15;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 767px){
+    #data{
+        display: grid;
+        grid-template-areas: "check title trash"
+        "check author page";
+        height: auto;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .check{
+        grid-area: check;
+        align-self: center;
+        font-size: 2em;
+        padding-left: 0.7em;
+    }
+    .title{
+        font-size: 1.3em;
+        grid-area: title;
+        align-self: flex-start;
+        justify-self: left;
+    }
+    
+    .author{
+        grid-area: author;
+        font-size: 0.8em;
+        align-self: flex-end;
+        justify-self: left;
+    }
+    
+    .pages{
+        grid-area: page;
+        font-size: 0.6em;
+        justify-self: right;
+        align-self: flex-end;
+    }
+    
+    .fa-trash{
+        grid-area: trash;
+        justify-self: right;
+        align-self: flex-start;
+    }
+}
+
+@media screen and (min-width:768px){
+    .container{
+        margin: 0 8em 0 8em;
+    }
+
+    .newContainer{
+        display: block;
+    }
+
+    .new:hover{
+        color: #61b628a1;
+    }
+
+    .new.new:active{
+        color: #61b628;
+    }
+
+    #data{
+        display: flex;
+        font-size: 1em;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .check{
+        font-size: 2em;
+    }
+
+    .title{
+        flex-basis: 15em;
+    }
+    .author,
+    .pages{
+        flex-basis:5em;
+    }
+    
+    .modal{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form{
+        width: 30vw;
+    }
+
+    .check:hover{
+        color: #626262;
+    }
+
+    .fa-trash:hover{
+        color: #9e2f2fde;
+    }
+
+    .cancel:hover{
+        color: #9e2f2fde;
+    }
+
+    .cancel:active{
+        color: #626262;
+    }
+
+    .add:hover{
+        background-color: #6d8b159a;
+    }
+
+    .add:active{
+        background-color: #61b628;
+    }
 }
