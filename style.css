@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Open-Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.container{
+    padding-top: 5em;
+}
+.container h1{
+    text-align: center;
+    font: lighter 2.5em "Roboto", sans-serif;
+    margin-bottom: 3em;
+}
+
+.newContainer{
+    margin:1.5em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new{
+    outline: none;
+    font: 1em "Open Sans", sans-serif;
+    border: none;
+    background: none;
+    color: white;
+}
+
+#data{
+    padding: 0.5em;
+    border-top: 0.1px solid rgba(255, 255, 255, 0.246);
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.246);
+    height: 14vh;
+    padding: .8em;
+    display: grid;
+    grid-template-areas: "check title trash"
+    "check author page";
+    justify-items: stretch;
+}
+
+.check{
+    grid-area: check;
+    align-self: center;
+    font-size: 2em;
+}
+.title{
+    font-size: 1.3em;
+    grid-area: title;
+    align-self: flex-start;
+    justify-self: left;
+}
+
+.author{
+    grid-area: author;
+    font-size: 0.8em;
+    align-self: flex-end;
+    justify-self: left;
+}
+
+.pages{
+    grid-area: page;
+    font-size: 0.6em;
+    justify-self: right;
+    align-self: flex-end;
+}
+
+.fa-trash{
+    grid-area: trash;
+    justify-self: right;
+    align-self: flex-start;
+}
