@@ -70,43 +70,44 @@ function clearForm(){
 
 //Create a function that renders the data to the page
 function render(book){
-        let container = document.createElement("div");
-        //Make the classname of container equal to the string equivalent of its index in the library array
-        container.className = library.indexOf(book[book.length - 1]).toString();
-        container.id = "data";
-        container.setAttribute("id", "data");
+    let element = book[book.length -1];
+    let container = document.createElement("div");
+    //Make the classname of container equal to the string equivalent of its index in the library array
+    container.className = library.indexOf(book[book.length - 1]).toString();
+    container.id = "data";
+    container.setAttribute("id", "data");
 
-        let checkbox = document.createElement("i");
-        checkbox.className = "fas fa-check-circle";
-        checkbox.id = "check"
-        checkbox.setAttribute("id", "check");
+    let checkbox = document.createElement("i");
+    checkbox.className = "fas fa-check-circle";
+    checkbox.id = "check"
+    checkbox.setAttribute("id", "check");
 
-        let bookTitle = document.createElement("p");
-        bookTitle.className = "title";
-        bookTitle.textContent = book[book.length - 1].title;
-        bookTitle.setAttribute("class", "title");
+    let bookTitle = document.createElement("p");
+    bookTitle.className = "title";
+    bookTitle.textContent = element.title;
+    bookTitle.setAttribute("class", "title");
 
-        let bookAuthor = document.createElement("p");
-        bookAuthor.className = "author";
-        bookAuthor.textContent = book[book.length - 1].author;
-        bookAuthor.setAttribute("class", "author")
+    let bookAuthor = document.createElement("p");
+    bookAuthor.className = "author";
+    bookAuthor.textContent = element.author;
+    bookAuthor.setAttribute("class", "author")
 
-        let bookPages = document.createElement("p");
-        bookPages.className = "pages";
-        bookPages.textContent = book[book.length - 1].pages + " pages";
-        bookPages.setAttribute("class", "pages")
+    let bookPages = document.createElement("p");
+    bookPages.className = "pages";
+    element.pages !== "" ? bookPages.textContent = element.pages + " pages": bookPages.textContent = "-";
+    bookPages.setAttribute("class", "pages")
 
-        let trashcan = document.createElement("i");
-        trashcan.className = "fas fa-trash";
-        trashcan.id = "trash";
-        trashcan.setAttribute("id", "trash");
+    let trashcan = document.createElement("i");
+    trashcan.className = "fas fa-trash";
+    trashcan.id = "trash";
+    trashcan.setAttribute("id", "trash");
 
-        // append the children
-        listContainer.appendChild(container);
-        container.appendChild(checkbox);
-        container.appendChild(bookTitle);
-        container.appendChild(bookAuthor);
-        container.appendChild(bookPages);
-        container.appendChild(trashcan);
+    // append the children
+    listContainer.appendChild(container);
+    container.appendChild(checkbox);
+    container.appendChild(bookTitle);
+    container.appendChild(bookAuthor);
+    container.appendChild(bookPages);
+    container.appendChild(trashcan);
     
 }
