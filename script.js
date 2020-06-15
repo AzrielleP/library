@@ -32,8 +32,8 @@ function Book(title, author, pages, status){
 }
 
 // Create a function to add the book to the library
-
 addBookToLibrary();
+
 function addBookToLibrary(){
     showHideForm();
     add.addEventListener("click", () =>{
@@ -45,9 +45,9 @@ function addBookToLibrary(){
         library.push(newBook);
         console.log(library);
         clearForm();
-        render();
-
+        render(library);
     })
+ 
 }
 
 function showHideForm(){
@@ -69,32 +69,31 @@ function clearForm(){
 }
 
 //Create a function that renders the data to the page
-function render(){
-    for(let element of library){
+function render(book){
         let container = document.createElement("div");
         //Make the classname of container equal to the string equivalent of its index in the library array
-        container.className = library.indexOf(element).toString();
+        container.className = library.indexOf(book[book.length - 1]).toString();
         container.id = "data";
         container.setAttribute("id", "data");
 
         let checkbox = document.createElement("i");
-        checkbox.className = "fas fa-check-circle check";
+        checkbox.className = "fas fa-check-circle";
         checkbox.id = "check"
         checkbox.setAttribute("id", "check");
 
         let bookTitle = document.createElement("p");
         bookTitle.className = "title";
-        bookTitle.textContent = element.title;
+        bookTitle.textContent = book[book.length - 1].title;
         bookTitle.setAttribute("class", "title");
 
         let bookAuthor = document.createElement("p");
         bookAuthor.className = "author";
-        bookAuthor.textContent = element.author;
+        bookAuthor.textContent = book[book.length - 1].author;
         bookAuthor.setAttribute("class", "author")
 
         let bookPages = document.createElement("p");
         bookPages.className = "pages";
-        bookPages.textContent = element.pages + " pages";
+        bookPages.textContent = book[book.length - 1].pages + " pages";
         bookPages.setAttribute("class", "pages")
 
         let trashcan = document.createElement("i");
@@ -109,5 +108,5 @@ function render(){
         container.appendChild(bookAuthor);
         container.appendChild(bookPages);
         container.appendChild(trashcan);
-    }
+    
 }
