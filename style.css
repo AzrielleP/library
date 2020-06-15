@@ -139,7 +139,7 @@ input[type="number"]{
         grid-template-columns: 1fr 2fr 1fr;
     }
 
-    .check{
+    #check{
         grid-area: check;
         align-self: center;
         font-size: 2em;
@@ -166,7 +166,7 @@ input[type="number"]{
         align-self: flex-end;
     }
     
-    .fa-trash{
+    #trash{
         grid-area: trash;
         justify-self: right;
         align-self: flex-start;
@@ -197,7 +197,7 @@ input[type="number"]{
         justify-content: space-around;
     }
 
-    .check{
+    #check{
         font-size: 2em;
     }
 
@@ -220,11 +220,11 @@ input[type="number"]{
         width: 30vw;
     }
 
-    .check:hover{
+    #check:hover{
         color: #626262;
     }
 
-    .fa-trash:hover{
+    #trash:hover{
         color: #9e2f2fde;
     }
 
