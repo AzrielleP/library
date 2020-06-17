@@ -1,14 +1,5 @@
 // Get HTML elements
-
-// For displaying books
-let read = document.querySelector(".check")
-let title = document.querySelector(".title");
-let author = document.querySelector(".author");
-let pages = document.querySelector(".pages");
-let trash = document.querySelector(".fa-trash");
 let listContainer = document.querySelector(".listContainer");
-
-// For adding books
 let newButton = document.querySelector(".new");
 let form = document.querySelector(".modal");
 let newTitle = document.querySelector("#title");
@@ -38,7 +29,7 @@ function addBookToLibrary(){
     showHideForm();
     add.addEventListener("click", () =>{
         let checkStatus = "";
-        status.checked ? checkStatus = "finished":checkStatus = "unfinished";
+        status.checked? checkStatus = "finished":checkStatus = "unfinished";
 
         let newBook = new Book(newTitle.value, newAuthor.value, newPages.value, checkStatus);
 
@@ -70,44 +61,66 @@ function clearForm(){
 
 //Create a function that renders the data to the page
 function render(book){
-    let element = book[book.length -1];
-    let container = document.createElement("div");
-    //Make the classname of container equal to the string equivalent of its index in the library array
-    container.className = library.indexOf(book[book.length - 1]).toString();
-    container.id = "data";
-    container.setAttribute("id", "data");
+    //for (let element of library){
+        let element = book[book.length-1]
+        let container = document.createElement("div");
+        //Make the classname of container equal to the string equivalent of its index in the library array
+        container.className = library.indexOf(element).toString();
+        container.id = "data";
+        container.setAttribute("id", "data");
 
-    let checkbox = document.createElement("i");
-    checkbox.className = "fas fa-check-circle";
-    checkbox.id = "check"
-    checkbox.setAttribute("id", "check");
+        let checkbox = document.createElement("i");
+        checkbox.className = "fas fa-check-circle";
+        checkbox.id = "check"
+        checkbox.setAttribute("id", "check");
 
-    let bookTitle = document.createElement("p");
-    bookTitle.className = "title";
-    bookTitle.textContent = element.title;
-    bookTitle.setAttribute("class", "title");
+        let checkToggler = document.createElement("input");
+        checkToggler.type = "checkbox";
+        checkToggler.setAttribute("class", "checkToggler");
+        if(element.checkStatus = "finished"){
+            checkToggler.checked = true
+        }
+        else{
+            checkToggler.checked = false;
+        }
 
-    let bookAuthor = document.createElement("p");
-    bookAuthor.className = "author";
-    bookAuthor.textContent = element.author;
-    bookAuthor.setAttribute("class", "author")
+        let bookTitle = document.createElement("p");
+        bookTitle.className = "title";
+        bookTitle.textContent = element.title;
+        bookTitle.setAttribute("class", "title");
 
-    let bookPages = document.createElement("p");
-    bookPages.className = "pages";
-    element.pages !== "" ? bookPages.textContent = element.pages + " pages": bookPages.textContent = "-";
-    bookPages.setAttribute("class", "pages")
+        let bookAuthor = document.createElement("p");
+        bookAuthor.className = "author";
+        bookAuthor.textContent = element.author;
+        bookAuthor.setAttribute("class", "author")
 
-    let trashcan = document.createElement("i");
-    trashcan.className = "fas fa-trash";
-    trashcan.id = "trash";
-    trashcan.setAttribute("id", "trash");
+        let bookPages = document.createElement("p");
+        bookPages.className = "pages";
+        element.pages !== "" ? bookPages.textContent = element.pages + " pages": bookPages.textContent = "-";
+        bookPages.setAttribute("class", "pages")
 
-    // append the children
-    listContainer.appendChild(container);
-    container.appendChild(checkbox);
-    container.appendChild(bookTitle);
-    container.appendChild(bookAuthor);
-    container.appendChild(bookPages);
-    container.appendChild(trashcan);
-    
+        let trashcan = document.createElement("i");
+        trashcan.className = "fas fa-trash";
+        trashcan.id = "trash";
+        trashcan.setAttribute("id", "trash");
+        deleteEntry(trashcan);
+        // append the children
+        listContainer.appendChild(container);
+        container.appendChild(checkToggler);
+        container.appendChild(checkbox);
+        container.appendChild(bookTitle);
+        container.appendChild(bookAuthor);
+        container.appendChild(bookPages);
+        container.appendChild(trashcan);
+    //}
+}
+
+function deleteEntry(trashcan){
+        trashcan.addEventListener("click", event =>{
+        
+            let containerToDelete = event.currentTarget.parentNode;
+            library.splice(Number(containerToDelete.className), 1);
+            containerToDelete.remove();
+            return library;
+        })
 }
