@@ -27,27 +27,22 @@ addBookToLibrary();
 function addBookToLibrary(){
 
     add.addEventListener("click", () =>{
-        let checkStatus = "";
-        status.checked? checkStatus = "finished":checkStatus = "unfinished";
+        let checkStatus = null;
+        (status.checked)? checkStatus = true : checkStatus = false;
+        
         let newBook = new Book(newTitle.value, newAuthor.value, newPages.value, checkStatus);
 
+    
      
         library.push(newBook);
         render(library);
-        //clearForm();
+        clearForm();
         console.log(library);
     
         
     })
  
 }
-
-function checkEmptyForm(title, author, book){
-    if(!title.value == "" && !author.value == ""){
-        
-    }
-}
-
 
 function clearForm(){
     newTitle.value = "";
@@ -61,25 +56,22 @@ function render(book){
    //for (let element of library){
         let element = book[book.length-1]
         let container = document.createElement("div");
+
         //Make the classname of container equal to the string equivalent of its index in the library array
         container.className = library.indexOf(element).toString();
         container.id = "data";
         container.setAttribute("id", "data");
 
-        let checkbox = document.createElement("i");
-        checkbox.className = "fas fa-check-circle";
-        checkbox.id = "check"
-        checkbox.setAttribute("id", "check");
-
         let checkToggler = document.createElement("input");
         checkToggler.type = "checkbox";
         checkToggler.setAttribute("class", "checkToggler");
-        if(element.checkStatus = "finished"){
+        if(element.status){
             checkToggler.checked = true
         }
-        else{
+        else if(!element.status){
             checkToggler.checked = false;
         }
+        changeStatus(checkToggler);
 
         let bookTitle = document.createElement("p");
         bookTitle.className = "title";
@@ -101,10 +93,10 @@ function render(book){
         trashcan.id = "trash";
         trashcan.setAttribute("id", "trash");
         deleteEntry(trashcan);
+
         // append the children
         listContainer.appendChild(container);
         container.appendChild(checkToggler);
-        container.appendChild(checkbox);
         container.appendChild(bookTitle);
         container.appendChild(bookAuthor);
         container.appendChild(bookPages);
@@ -120,4 +112,14 @@ function deleteEntry(trashcan){
             containerToDelete.remove();
             render(library);
         })
+}
+
+function changeStatus(checkToggler){
+    checkToggler.addEventListener("click", event =>{
+        let indexInLibrary = Number(event.currentTarget.parentNode.className);
+        if(checkToggler.checked){
+            library[indexInLibrary].status = true;
+        }
+        else library[indexInLibrary].status = false;
+    })
 }
