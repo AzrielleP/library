@@ -13,30 +13,25 @@
       rel="stylesheet"
     />
 
-    <script
+    <!--<script
       src="https://kit.fontawesome.com/238576f8e6.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
   </head>
 
   <body>
     <div class="container">
       <h1>Reading List</h1>
-      <div class="newContainer">
-        <button class="new">+ New</button>
-      </div>
-      <div class="listContainer">
-      </div>
-      <div class="modal">
+        <div class="modal">
           <form>
               <ul>
                   <li>
                       <label for = "title">Title</label>
-                      <input type = "text" id = "title" name = "title" placeholder = "Enter the book's title">
+                      <input type = "text" id = "title" name = "title" placeholder = "Enter the book's title" required>
                   </li>
                   <li>
                     <label for = "author">Author</label>
-                    <input type = "text" id = "author" name = "author" placeholder = "Enter the author's name">
+                    <input type = "text" id = "author" name = "author" placeholder = "Enter the author's name" required>
                   </li>
                   <li>
                     <label for = "pages">No. of Pages</label>
@@ -48,11 +43,20 @@
                 </li>
               </ul>
               <div class="send">
-                  <button class = "cancel" type = "button">Cancel</button>
-                  <button class = "add" type="button">Add</button>
+                  <button class = "add" type="button">Add Entry</button>
               </div>
           </form>
       </div>
+      <div class="listContainer">
+          <div class = "trial" id="data">
+            <i class = "fas fa-check-circle" id="check"></i>
+            <p class="title">The Alchemist</p>
+            <p class="author">Paulo Coelho</p>
+            <p class="pages">200 pages</p>
+            <i class = "fas fa-trash" id="trash"></i>  
+          </div>
+      </div>
+      
     </div>
   </body>
 </html>
