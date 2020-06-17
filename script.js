@@ -1,6 +1,5 @@
 // Get HTML elements
 let listContainer = document.querySelector(".listContainer");
-let newButton = document.querySelector(".new");
 let form = document.querySelector(".modal");
 let newTitle = document.querySelector("#title");
 let newAuthor = document.querySelector("#author");
@@ -26,33 +25,31 @@ function Book(title, author, pages, status){
 addBookToLibrary();
 
 function addBookToLibrary(){
-    showHideForm();
+
     add.addEventListener("click", () =>{
         let checkStatus = "";
         status.checked? checkStatus = "finished":checkStatus = "unfinished";
-
         let newBook = new Book(newTitle.value, newAuthor.value, newPages.value, checkStatus);
 
+     
         library.push(newBook);
-        console.log(library);
-        clearForm();
         render(library);
+        //clearForm();
+        console.log(library);
+    
+        
     })
  
 }
 
-function showHideForm(){
-    newButton.addEventListener("click", () =>{
-        form.style.visibility = "visible";
-    })
-
-    cancel.addEventListener("click", () =>{
-        form.style.visibility = "hidden";
-    })
+function checkEmptyForm(title, author, book){
+    if(!title.value == "" && !author.value == ""){
+        
+    }
 }
 
+
 function clearForm(){
-    form.style.visibility = "hidden";
     newTitle.value = "";
     newAuthor.value = "";
     newPages.value = "";
@@ -61,7 +58,7 @@ function clearForm(){
 
 //Create a function that renders the data to the page
 function render(book){
-    //for (let element of library){
+   //for (let element of library){
         let element = book[book.length-1]
         let container = document.createElement("div");
         //Make the classname of container equal to the string equivalent of its index in the library array
@@ -112,7 +109,7 @@ function render(book){
         container.appendChild(bookAuthor);
         container.appendChild(bookPages);
         container.appendChild(trashcan);
-    //}
+   // }
 }
 
 function deleteEntry(trashcan){
@@ -121,6 +118,6 @@ function deleteEntry(trashcan){
             let containerToDelete = event.currentTarget.parentNode;
             library.splice(Number(containerToDelete.className), 1);
             containerToDelete.remove();
-            return library;
+            render(library);
         })
 }
