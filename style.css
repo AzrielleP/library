@@ -1,219 +1,215 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    font-family: "Open-Sans", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1e1e1e;
-    color: white;
+body {
+  font-family: "Open-Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: white;
 }
 
-.container{
-    padding: 5em 1em 1em 1em;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: space-around;
+.container {
+  padding: 5em 1em 1em 1em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
 }
-.container h1{
-    text-align: center;
-    font: lighter 2.5em "Roboto", sans-serif;
-    margin-bottom: 1em;
+.container h1 {
+  text-align: center;
+  font: lighter 2.5em "Roboto", sans-serif;
+  margin-bottom: 1em;
 }
 
 /* ====== Styling the entries ======= */
-#data{
-    padding: 0.5em;
-    border-top: 0.1px solid rgba(255, 255, 255, 0.096);
-    border-bottom: 0.1px solid rgba(255, 255, 255, 0.096);
-    padding: .8em;
-    width: 100%;
+#data {
+  border-top: 0.1px solid rgba(255, 255, 255, 0.096);
+  border-bottom: 0.1px solid rgba(255, 255, 255, 0.096);
+  padding: 0.8em;
+  width: 100%;
 }
 
 /* ====== Styling the form ======= */
-.modal{
-    padding: 1em 4em 3em 4em;
-    background-color: #1e1e1eb4;
+.modal {
+  padding: 1em 4em 3em 4em;
+  background-color: #1e1e1eb4;
 }
 
-ul{
-    list-style-type: none;
+ul {
+  list-style-type: none;
 }
 
-label:not(.agree){
-    display:block;
-    margin: 2em 0 1em 0;
+label:not(.agree) {
+  display: block;
+  margin: 2em 0 1em 0;
 }
 
-input[type="text"]{
-    color: white;
-    background: none;
-    border:none;
-    border-bottom: 1px solid white;
-    outline: none;
-    width: 100%;
-    padding-bottom: .5em;
+input[type="text"] {
+  color: white;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  width: 100%;
+  padding-bottom: 0.5em;
 }
 
-input[type="number"]{
-    color: white;
-    background: none;
-    border:none;
-    border-bottom: 1px solid white;
-    outline: none;
-    width: 30%;
-    padding-bottom: .5em;
+input[type="number"] {
+  color: white;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  width: 30%;
+  padding-bottom: 0.5em;
 }
 
 /* Styling the checkToggler*/
-.checkToggler{
-    height: 2em;
-    width: 2em;
+.checkToggler {
+  height: 2em;
+  width: 2em;
 }
 
-.read{
-    margin: 2em 0 2em 0;
+.read {
+  margin: 2em 0 2em 0;
 }
 
-#agree{
-    display: inline;
+#agree {
+  display: inline;
 }
 
-.send{
-    margin-top: 2em;
+.send {
+  margin-top: 2em;
 }
 
-.send button{
-    color: white;
-    padding: .5em;
-    width: 7em;
-    outline: none;
-    border: none;
+.send button {
+  color: white;
+  padding: 0.5em;
+  width: 7em;
+  outline: none;
+  border: none;
 }
 
-.cancel{
-    background: none;
+.cancel {
+  background: none;
 }
 
-.add{
-    background: #6d8b15;
-    border-radius: 10px;
+.add {
+  background: #6d8b15;
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 767px){
-    #data{
-        display: grid;
-        grid-template-areas: "check title trash"
-        "check author page";
-        height: auto;
-        grid-template-columns: 1fr 2fr 1fr;
-        width: 70vw;
-        padding-left: 1em;
-    }
+@media screen and (max-width: 767px) {
+  #data {
+    display: grid;
+    grid-template-areas:
+      "check title trash"
+      "check author page";
+    height: auto;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 70vw;
+    padding-left: 1em;
+  }
 
-    .checkToggler{
-        grid-area: check;
-        align-self: center;
-        justify-self: start;
-        
-    }
-    .title{
-        font-size: 1.3em;
-        grid-area: title;
-        align-self: flex-start;
-        justify-self: left;
-    }
-    
-    .author{
-        grid-area: author;
-        font-size: 0.8em;
-        align-self: flex-end;
-        justify-self: left;
-    }
-    
-    .pages{
-        grid-area: page;
-        font-size: 0.6em;
-        justify-self: right;
-        align-self: flex-end;
-    }
-    
-    #trash{
-        grid-area: trash;
-        justify-self: right;
-        align-self: flex-start;
-    }
+  .checkToggler {
+    grid-area: check;
+    align-self: center;
+    justify-self: start;
+  }
+  .title {
+    font-size: 1.3em;
+    grid-area: title;
+    align-self: flex-start;
+    justify-self: left;
+  }
+
+  .author {
+    grid-area: author;
+    font-size: 0.8em;
+    align-self: flex-end;
+    justify-self: left;
+  }
+
+  .pages {
+    grid-area: page;
+    font-size: 0.6em;
+    justify-self: right;
+    align-self: flex-end;
+  }
+
+  #trash {
+    grid-area: trash;
+    justify-self: right;
+    align-self: flex-start;
+  }
 }
 
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 0 4em 0 4em;
+  }
 
+  .newContainer {
+    display: block;
+  }
 
-@media screen and (min-width:768px){
-    .container{
-        margin: 0 4em 0 4em;
-    }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2em;
+  }
 
-    .newContainer{
-        display: block;
-    }
+  label:not(.agree) {
+    margin: 1em 0 1em 0;
+  }
 
-    ul{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);       
-        column-gap: 2em;    
-    }
+  .read {
+    margin: 2em 0 1em 0;
+  }
 
-    label:not(.agree){
-        margin: 1em 0 1em 0;
-    }
+  #data {
+    display: flex;
+    font-size: 1em;
+    align-items: center;
+    justify-content: space-around;
+    width: 60vw;
+  }
 
-    .read{
-        margin:2em 0 1em 0;
-    }
+  .title {
+    flex-basis: 15em;
+  }
+  .author,
+  .pages {
+    flex-basis: 5em;
+  }
 
-    #data{
-        display: flex;
-        font-size: 1em;
-        align-items: center;
-        justify-content: space-around;
-        width: 60vw;
-    }
+  #trash:hover {
+    color: #9e2f2fde;
+  }
 
-    .title{
-        flex-basis: 15em;
-    }
-    .author,
-    .pages{
-        flex-basis:5em;
-    }
+  .cancel:hover {
+    color: #9e2f2fde;
+  }
 
-    #trash:hover{
-        color: #9e2f2fde;
-    }
+  .cancel:active {
+    color: #626262;
+  }
 
-    .cancel:hover{
-        color: #9e2f2fde;
-    }
+  .add:hover {
+    background-color: #6d8b159a;
+  }
 
-    .cancel:active{
-        color: #626262;
-    }
-
-    .add:hover{
-        background-color: #6d8b159a;
-    }
-
-    .add:active{
-        background-color: #61b628;
-    }
+  .add:active {
+    background-color: #61b628;
+  }
 }
 
-
-@media screen and (min-width:1500px){
-    .container{
-        margin: 0 15em 0 15em;
-    }
+@media screen and (min-width: 1500px) {
+  .container {
+    margin: 0 15em 0 15em;
+  }
 }
