@@ -69,6 +69,12 @@ input[type="number"]{
     padding-bottom: .5em;
 }
 
+/* Styling the checkToggler*/
+.checkToggler{
+    height: 2em;
+    width: 2em;
+}
+
 .read{
     margin: 2em 0 2em 0;
 }
@@ -113,7 +119,7 @@ input[type="number"]{
         grid-area: check;
         align-self: center;
         justify-self: start;
-        font-size: 2em;
+        
     }
     .title{
         font-size: 1.3em;
@@ -176,20 +182,12 @@ input[type="number"]{
         width: 60vw;
     }
 
-    #check{
-        font-size: 2em;
-    }
-
     .title{
         flex-basis: 15em;
     }
     .author,
     .pages{
         flex-basis:5em;
-    }
-
-    #check:hover{
-        color: #626262;
     }
 
     #trash:hover{
