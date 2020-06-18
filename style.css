@@ -116,6 +116,7 @@ input[type="number"]{
         "check author page";
         height: auto;
         grid-template-columns: 1fr 2fr 1fr;
+        width: 70vw;
     }
 
     #check{
