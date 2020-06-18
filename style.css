@@ -34,17 +34,6 @@ body{
     width: 100%;
 }
 
-.checkToggler{
-    font-family: FontAwesome;
-    content: "\f058";
-}
-
-.checkToggler:checked{
-    color: #61b628;
-}
-
-
-
 /* ====== Styling the form ======= */
 .modal{
     padding: 1em 4em 3em 4em;
@@ -117,13 +106,14 @@ input[type="number"]{
         height: auto;
         grid-template-columns: 1fr 2fr 1fr;
         width: 70vw;
+        padding-left: 1em;
     }
 
-    #check{
+    .checkToggler{
         grid-area: check;
         align-self: center;
+        justify-self: start;
         font-size: 2em;
-        padding-left: 0.7em;
     }
     .title{
         font-size: 1.3em;
