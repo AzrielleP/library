@@ -31,19 +31,21 @@ function addBookToLibrary(){
         (status.checked)? checkStatus = true : checkStatus = false;
         
         let newBook = new Book(newTitle.value, newAuthor.value, newPages.value, checkStatus);
-
-    
-     
+ 
         library.push(newBook);
-        render(library);
+
         clearForm();
+       
         console.log(library);
+        render();
     
         
     })
+    return library;
  
 }
 
+// Create a function that clears the form whenever we add a new entry
 function clearForm(){
     newTitle.value = "";
     newAuthor.value = "";
@@ -52,9 +54,12 @@ function clearForm(){
 }
 
 //Create a function that renders the data to the page
-function render(book){
-   //for (let element of library){
-        let element = book[book.length-1]
+function render(){
+
+    //Remove the contents of listcontainer first so that we will start with a new container when we delete an entry
+    listContainer.innerHTML = "";
+   for (let element of library){
+      
         let container = document.createElement("div");
 
         //Make the classname of container equal to the string equivalent of its index in the library array
@@ -62,6 +67,7 @@ function render(book){
         container.id = "data";
         container.setAttribute("id", "data");
 
+        // Display the items on the page
         let checkToggler = document.createElement("input");
         checkToggler.type = "checkbox";
         checkToggler.setAttribute("class", "checkToggler");
@@ -94,26 +100,29 @@ function render(book){
         trashcan.setAttribute("id", "trash");
         deleteEntry(trashcan);
 
-        // append the children
+        // Append the children
         listContainer.appendChild(container);
         container.appendChild(checkToggler);
         container.appendChild(bookTitle);
         container.appendChild(bookAuthor);
         container.appendChild(bookPages);
         container.appendChild(trashcan);
-   // }
+    }
 }
 
+// Create a function for the trash icon
 function deleteEntry(trashcan){
         trashcan.addEventListener("click", event =>{
         
             let containerToDelete = event.currentTarget.parentNode;
             library.splice(Number(containerToDelete.className), 1);
             containerToDelete.remove();
+            // Use render again so that the className of the remaining containers will correspond with its index number
             render(library);
         })
 }
 
+// Create a function which lets the user change the status of the entry
 function changeStatus(checkToggler){
     checkToggler.addEventListener("click", event =>{
         let indexInLibrary = Number(event.currentTarget.parentNode.className);
