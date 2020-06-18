@@ -1,7 +1,5 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -30,7 +28,6 @@ body {
   border-top: 0.1px solid rgba(255, 255, 255, 0.096);
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.096);
   padding: 0.8em;
-  width: 100%;
 }
 
 /* ====== Styling the form ======= */
@@ -83,7 +80,7 @@ input[type="number"] {
 }
 
 .send {
-  margin-top: 2em;
+  margin: 2em 0 0 3em;
 }
 
 .send button {
@@ -92,10 +89,6 @@ input[type="number"] {
   width: 7em;
   outline: none;
   border: none;
-}
-
-.cancel {
-  background: none;
 }
 
 .add {
@@ -189,14 +182,6 @@ input[type="number"] {
 
   #trash:hover {
     color: #9e2f2fde;
-  }
-
-  .cancel:hover {
-    color: #9e2f2fde;
-  }
-
-  .cancel:active {
-    color: #626262;
   }
 
   .add:hover {
