@@ -14,11 +14,13 @@ let cancel = document.querySelector(".cancel");
 let library = [];
 
 // Create a constructor for the books
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
+class Book{
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
 }
 
 // Create a function to add the book to the library
